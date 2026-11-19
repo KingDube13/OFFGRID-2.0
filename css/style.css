@@ -1,0 +1,451 @@
+/* =================================
+   OFFGRID — GLOBAL DESIGN SYSTEM
+================================= */
+
+:root {
+    --paper: #F5F3EF;
+    --ink: #171717;
+    --grey: #73736E;
+    --stone: #B8B6B0;
+    --lime: #D7FF3F;
+
+    --heading: 'Anton', impact, sans-serif;
+    --body: 'Inter', sans-serif;
+
+    --page-padding: 5%;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { background: var(--paper); color: var(--ink); font-family: var(--body); }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; cursor: pointer; border: none; background: none; }
+img { display: block; width: 100%; height: 100%; object-fit: cover; }
+
+/* Accessibility */
+.skip-link { position: absolute; left: -9999px; }
+.skip-link:focus { left: 10px; top: 10px; background: var(--ink); color: white; padding: 10px; z-index: 999; }
+:focus-visible { outline: 2px solid var(--lime); outline-offset: 4px; }
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
+
+/* Announcement */
+.announcement { background: var(--lime); padding: 10px; text-align: center; }
+.announcement p { font-size: 10px; font-weight: 700; letter-spacing: 2px; }
+
+/* Navigation */
+.navbar {
+    min-height: 85px; padding: 0 var(--page-padding);
+    display: flex; align-items: center; justify-content: space-between;
+    border-bottom: 1px solid var(--stone); position: relative; z-index: 10;
+}
+/* =================================
+   NEW LOGO STYLES
+================================= */
+.logo-link {
+    display: flex;
+    align-items: center;
+    height: 100%; /* Ensures it stays vertically centered */
+}
+
+.site-logo {
+    height: 40px; /* Adjust this number to make the logo bigger or smaller */
+    width: auto;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.site-logo:hover {
+    transform: scale(1.05); /* Slight pop on hover */
+}
+
+/* Mobile specific logo size */
+@media (max-width: 650px) {
+    .site-logo {
+        height: 32px;
+    }
+}
+.nav-links { display: flex; gap: 36px; align-items: center; }
+.nav-links a { font-size: 12px; font-weight: 600; transition: color 0.2s; }
+.nav-links a:hover, .nav-links a.active { color: var(--grey); }
+.nav-right { display: flex; align-items: center; gap: 20px; }
+.nav-cta { display: flex; align-items: center; gap: 10px; font-size: 10px; font-weight: 700; letter-spacing: 1px; }
+.nav-cta svg { width: 16px; }
+.menu-toggle { display: none; }
+
+/* HERO (Original Editorial Layout) */
+.hero { padding: 35px var(--page-padding) 45px; }
+.hero-top, .section-label { display: flex; justify-content: space-between; font-size: 10px; font-weight: 700; letter-spacing: 1px; color: var(--grey); }
+.hero-content { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 35px; align-items: center; margin-top: 55px; }
+.hero-heading h1 { font-family: var(--heading); font-size: clamp(75px, 10vw, 155px); line-height: 0.85; letter-spacing: 0.01em; font-weight: 400; text-transform: uppercase; }
+.lime-dot { color: var(--lime); }
+.hero-image { height: 540px; position: relative; overflow: hidden; background: var(--stone); }
+.hero-image img { transition: transform 0.8s ease; }
+.hero-image:hover img { transform: scale(1.04); }
+.image-label { position: absolute; bottom: 0; left: 0; width: 100%; padding: 16px; background: rgba(23, 23, 23, 0.8); color: white; display: flex; justify-content: space-between; font-size: 9px; letter-spacing: 1px; }
+.hero-bottom { margin-top: 35px; display: flex; justify-content: space-between; align-items: center; }
+.hero-bottom p { max-width: 430px; font-size: 13px; line-height: 1.8; color: var(--grey); }
+.circle-link { width: 52px; height: 52px; border: 1px solid var(--ink); border-radius: 50%; display: grid; place-items: center; transition: 0.3s; }
+.circle-link:hover { background: var(--lime); }
+
+/* Intro */
+.intro-section { padding: 100px var(--page-padding); background: var(--ink); color: var(--paper); }
+.intro-section .section-label { color: var(--stone); }
+.intro-section h2 { font-family: var(--heading); font-size: clamp(40px, 7vw, 100px); line-height: 1.05; max-width: 1100px; margin-top: 65px; font-weight: 400; text-transform: uppercase; letter-spacing: 0.02em; }
+.intro-section h2 span { color: var(--lime); }
+.intro-bottom { display: flex; justify-content: space-between; align-items: end; margin-top: 50px; gap: 30px; }
+.intro-bottom p { max-width: 400px; color: var(--stone); font-size: 13px; line-height: 1.8; }
+.text-link { display: inline-flex; align-items: center; gap: 12px; font-size: 10px; font-weight: 700; letter-spacing: 1px; padding-bottom: 8px; border-bottom: 1px solid currentColor; }
+.text-link svg { width: 15px; }
+
+/* =================================
+   PINTEREST / MASONRY LAYOUT
+================================= */
+
+.trending-section { padding: 100px var(--page-padding); }
+.section-heading { display: flex; justify-content: space-between; align-items: end; margin-bottom: 40px; }
+.eyebrow { font-size: 10px; color: var(--grey); font-weight: 700; letter-spacing: 1.5px; }
+.section-heading h2 { font-family: var(--heading); font-size: clamp(45px, 6vw, 75px); margin-top: 15px; font-weight: 400; text-transform: uppercase; }
+.section-heading h2 span { color: var(--grey); }
+
+/* The Masonry Grid */
+.trend-grid { 
+    column-count: 3; 
+    column-gap: 20px; 
+    width: 100%;
+}
+
+.style-results {
+    column-count: 3;
+    column-gap: 15px;
+}
+
+.trend-card, .style-result-card { 
+    display: block; 
+    min-width: 0; 
+    position: relative;
+    break-inside: avoid; /* Prevents cards from splitting across columns */
+    margin-bottom: 20px; /* Space between images vertically */
+    background: var(--paper);
+    transition: transform 0.3s ease;
+}
+
+/* Make the image containers dynamic height */
+.trend-image { 
+    position: relative; 
+    overflow: hidden; 
+    background: var(--stone); 
+    height: auto; /* Removes the fixed 430px height */
+}
+
+.trend-image img, .style-result-card img { 
+    width: 100%;
+    height: auto; /* Keeps the image's natural aspect ratio */
+    display: block;
+    transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), filter 0.6s ease; 
+    filter: grayscale(100%);
+}
+
+/* Creative Hover Effect */
+.trend-card:hover .trend-image img,
+.style-result-card:hover img { 
+    transform: scale(1.04); 
+    filter: grayscale(0%); 
+}
+
+.trend-number { position: absolute; top: 15px; left: 15px; background: var(--lime); padding: 8px 11px; font-size: 10px; font-weight: 700; border: 1px solid var(--ink); }
+.trend-info { padding: 16px 0; display: flex; justify-content: space-between; align-items: flex-start; }
+.trend-info h3 { font-family: var(--body); font-size: 14px; font-weight: 700; text-transform: uppercase; }
+.trend-info p { color: var(--grey); font-size: 11px; margin-top: 4px; }
+.trend-info svg { width: 19px; }
+.save-btn { position: absolute; top: 15px; right: 15px; z-index: 10; color: white; font-size: 24px; text-shadow: 0 2px 10px rgba(0,0,0,0.8); }
+.save-btn.is-saved { color: var(--lime); }
+
+/* Lookbook specific grid styling */
+#lookbook-grid {
+    column-count: 3;
+    column-gap: 24px;
+}
+
+/* Lookbook Feature Section */
+.lookbook-feature { display: grid; grid-template-columns: 1fr 1fr; min-height: 550px; background: #E8E6E0; }
+.lookbook-image { min-height: 550px; overflow: hidden; }
+.lookbook-content { padding: 70px 12%; display: flex; flex-direction: column; align-items: flex-start; justify-content: center; }
+.lookbook-content h2 { font-family: var(--heading); font-size: clamp(45px, 6vw, 80px); line-height: 0.95; margin: 35px 0 25px; font-weight: 400; text-transform: uppercase; }
+.lookbook-content h2 span { display: block; color: var(--grey); }
+.lookbook-content p { font-size: 13px; line-height: 1.8; color: var(--grey); max-width: 370px; margin-bottom: 30px; }
+.button-primary { background: var(--ink); color: white; display: inline-flex; align-items: center; gap: 15px; padding: 17px 22px; font-size: 10px; font-weight: 700; letter-spacing: 1px; transition: 0.3s; }
+.button-primary:hover { background: var(--lime); color: var(--ink); }
+
+/* Search Bar */
+.search-container { display: flex; align-items: center; border-bottom: 2px solid var(--ink); margin-bottom: 24px; max-width: 600px; padding-bottom: 8px; }
+.search-input { flex: 1; background: transparent; border: none; font-family: var(--body); font-size: 16px; padding: 8px 0; color: var(--ink); outline: none; }
+.search-input::placeholder { color: var(--grey); font-size: 14px; text-transform: uppercase; letter-spacing: 0.05em; }
+.search-btn { background: transparent; color: var(--ink); padding: 8px; display: flex; align-items: center; justify-content: center; transition: color 0.2s; }
+.search-btn:hover { color: var(--lime); }
+
+/* Filters */
+.filter-tabs { display: flex; gap: 12px; margin-bottom: 40px; overflow-x: auto; padding-bottom: 8px; }
+.filter-btn { background: transparent; border: 1px solid var(--stone); color: var(--ink); padding: 8px 16px; font-size: 12px; font-weight: 600; text-transform: uppercase; transition: 0.2s; }
+.filter-btn.is-active, .filter-btn:hover { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+
+/* Utilities */
+.skeleton { background: linear-gradient(90deg, #e0ddd6 25%, #f5f3ef 50%, #e0ddd6 75%); background-size: 200% 100%; animation: shimmer 1.4s infinite; height: 430px; break-inside: avoid; margin-bottom: 20px;}
+@keyframes shimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
+.state-panel { padding: 50px; text-align: center; border: 2px solid var(--ink); background: var(--paper); }
+.state-panel p { font-family: var(--heading); font-size: 32px; margin-bottom: 24px; text-transform: uppercase; }
+.btn { background: var(--ink); color: white; padding: 16px 32px; font-weight: 700; text-transform: uppercase; }
+
+/* Footer */
+.footer { background: var(--ink); color: var(--paper); padding: 75px var(--page-padding) 25px; }
+.footer-top { display: flex; justify-content: space-between; align-items: center; padding-bottom: 65px; }
+.footer-top h2 { font-family: var(--heading); font-size: clamp(40px, 7vw, 90px); font-weight: 400; text-transform: uppercase; }
+.footer-top h2 span { color: var(--lime); }
+.footer-link { display: flex; align-items: center; gap: 10px; font-size: 10px; font-weight: 700; }
+.footer-bottom { border-top: 1px solid #444; padding-top: 25px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+.footer-bottom p { font-size: 9px; letter-spacing: 1px; color: var(--stone); }
+
+/* Lightbox */
+.lightbox { position: fixed; inset: 0; z-index: 99999; background: rgba(0,0,0,0.96); display: flex; align-items: center; justify-content: center; padding: 40px; opacity: 0; visibility: hidden; transition: 0.3s; }
+.lightbox.active { opacity: 1; visibility: visible; }
+.lightbox img { max-width: 95%; max-height: 90vh; width: auto; height: auto; object-fit: contain; }
+.lightbox-close { position: absolute; top: 25px; right: 35px; color: white; font-size: 38px; cursor: pointer; }
+
+/* Style Finder */
+.style-finder-section { padding-top: 90px; padding-bottom: 90px; }
+.style-finder-heading { display: flex; align-items: end; justify-content: space-between; padding-bottom: 25px; border-bottom: 2px solid var(--ink); margin-bottom: 30px; }
+.style-finder-heading h2 { font-family: var(--heading); font-size: clamp(45px, 7vw, 85px); line-height: 0.95; }
+.style-options { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 45px; }
+.style-option { padding: 13px 19px; border: 1px solid var(--ink); background: transparent; color: var(--ink); font-family: var(--body); font-size: 10px; font-weight: 600; letter-spacing: 0.08em; cursor: pointer; transition: all 0.25s ease; }
+.style-option:hover, .style-option.active { background: var(--ink); color: var(--paper); }
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .trend-grid, #lookbook-grid, .style-results { column-count: 2; }
+}
+
+@media (max-width: 900px) {
+    :root { --page-padding: 4%; }
+    .nav-links { gap: 17px; }
+    .nav-cta { display: none; }
+    .hero-heading h1 { font-size: clamp(65px, 11vw, 100px); }
+    .hero-image { height: 420px; }
+    .lookbook-content { padding: 45px 8%; }
+}
+
+@media (max-width: 650px) {
+    .navbar { min-height: 70px; }
+    .logo { font-size: 28px; }
+    .menu-toggle { display: block; z-index: 100; position: relative; }
+    .nav-links { display: none; position: absolute; top: 70px; left: 0; width: 100%; padding: 25px 5%; background: var(--paper); border-bottom: 1px solid var(--stone); flex-direction: column; align-items: flex-start; gap: 24px; }
+    .nav-links.open { display: flex; }
+    .nav-links a { font-size: 15px; }
+    .hero { padding-top: 25px; }
+    .hero-top { gap: 15px; font-size: 8px; }
+    .hero-content { grid-template-columns: 1fr; margin-top: 45px; gap: 25px; }
+    .hero-heading h1 { font-size: clamp(75px, 17vw, 120px); }
+    .hero-image { height: 420px; }
+    .hero-bottom { margin-top: 25px; }
+    .hero-bottom p { max-width: 75%; font-size: 12px; }
+    .intro-section, .trending-section { padding-top: 70px; padding-bottom: 70px; }
+    .intro-section h2 { margin-top: 45px; }
+    .intro-bottom { align-items: flex-start; flex-direction: column; }
+    .section-heading { align-items: flex-start; flex-direction: column; gap: 25px; }
+    
+    /* Mobile Masonry */
+    .trend-grid, #lookbook-grid, .style-results { column-count: 1; }
+    .trend-image img, .style-result-card img {
+        aspect-ratio: 3/4; /* Keeps mobile images looking editorial */
+        object-fit: cover;
+    }
+    
+    .lookbook-feature { grid-template-columns: 1fr; }
+    .lookbook-image { min-height: 380px; height: 380px; }
+    .lookbook-content { padding: 60px 7%; }
+    .footer-top { flex-direction: column; align-items: flex-start; gap: 25px; }
+    .footer-bottom { flex-direction: column; align-items: flex-start; gap: 17px; }
+}
+
+/* =================================
+   PURE PINTEREST LOOKBOOK GRID
+================================= */
+
+/* Target only the lookbook grid */
+#lookbook-grid {
+    column-count: 3;
+    column-gap: 16px;
+}
+
+/* Make the cards transparent so the image pops */
+#lookbook-grid .trend-card {
+    margin-bottom: 16px;
+    background: transparent;
+    break-inside: avoid;
+}
+
+/* Remove the image container padding */
+#lookbook-grid .trend-image {
+    background: transparent;
+    border-radius: 12px; /* Optional: rounds the corners like Pinterest */
+    overflow: hidden;
+}
+
+/* Ensure the image fills the space */
+#lookbook-grid .trend-image img {
+    border-radius: 12px;
+    transition: transform 0.4s ease;
+}
+
+#lookbook-grid .trend-card:hover .trend-image img {
+    transform: scale(1.03);
+}
+
+/* Hide the text info section entirely */
+#lookbook-grid .trend-info {
+    display: none !important;
+}
+
+/* Responsive: 2 columns on tablet, 1 on mobile */
+@media (max-width: 1024px) {
+    #lookbook-grid { column-count: 2; }
+}
+@media (max-width: 768px) {
+    #lookbook-grid { column-count: 1; }
+}
+
+/* =================================
+   PINTEREST-STYLE LIGHTBOX
+================================= */
+
+.lightbox-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    background: rgba(23, 23, 23, 0.95);
+    backdrop-filter: blur(5px);
+    display: none;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+.lightbox-overlay.active {
+    display: flex;
+}
+
+/* Top Bar (Close Button) */
+.lightbox-top-bar {
+    position: sticky;
+    top: 0;
+    display: flex;
+    justify-content: flex-end;
+    padding: 20px 40px;
+    z-index: 10;
+}
+
+.lightbox-close-btn {
+    background: var(--paper);
+    color: var(--ink);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 24px;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.lightbox-close-btn:hover {
+    background: var(--lime);
+}
+
+/* Main Image Area */
+.lightbox-main {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 60vh;
+    padding: 0 60px;
+}
+
+.lightbox-main img {
+    max-width: 100%;
+    max-height: 80vh;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+/* Left/Right Navigation Arrows */
+.lightbox-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(245, 243, 239, 0.2);
+    color: var(--paper);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 24px;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    transition: 0.2s;
+    border: 1px solid rgba(255,255,255,0.3);
+}
+
+.lightbox-arrow:hover {
+    background: var(--lime);
+    color: var(--ink);
+    border-color: var(--lime);
+}
+
+.arrow-left { left: 20px; }
+.arrow-right { right: 20px; }
+
+/* Related Images Section */
+.lightbox-related {
+    padding: 60px 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.lightbox-related h3 {
+    color: var(--paper);
+    font-family: var(--heading);
+    font-size: 32px;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+    text-align: center;
+    letter-spacing: 2px;
+}
+
+.related-grid {
+    column-count: 4;
+    column-gap: 16px;
+}
+
+.related-grid img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 16px;
+    break-inside: avoid;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.related-grid img:hover {
+    transform: scale(1.02);
+}
+
+@media (max-width: 768px) {
+    .lightbox-main { padding: 0 10px; }
+    .lightbox-arrow { width: 40px; height: 40px; font-size: 18px; }
+    .arrow-left { left: 5px; }
+    .arrow-right { right: 5px; }
+    .related-grid { column-count: 2; }
+    .lightbox-related { padding: 40px 20px; }
+}

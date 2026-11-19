@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OFFGRID — Lookbook</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+</head>
+<body>
+    <a href="#main" class="skip-link">Skip to content</a>
+    <div class="announcement"><p>NOT HERE TO FOLLOW. HERE TO DEFINE.</p></div>
+
+    <header class="navbar">
+        <a href="index.html" class="logo-link">
+    <img src="assets/images/offgrid-logo.png" alt="OFFGRID Logo" class="site-logo">
+</a>
+        <nav class="nav-links" id="navLinks">
+            <a href="index.html">Discover</a>
+            <a href="lookbook.html" class="active">Lookbook</a>
+            <a href="trends.html">Explore Trends</a>
+        </nav>
+        <div class="nav-right">
+            <button class="menu-toggle" id="menuToggle" aria-label="Open navigation" aria-expanded="false">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+    </header>
+
+    <main id="main" class="container" style="padding-top: 60px; padding-bottom: 80px;">
+        <div style="margin-bottom: 40px; border-bottom: 2px solid var(--ink); padding-bottom: 16px;">
+            <h1 class="h1" style="font-family: var(--heading); font-size: clamp(50px, 8vw, 100px); text-transform: uppercase;">LOOKBOOK</h1>
+            <p class="body-s" style="text-transform: uppercase; letter-spacing: 0.1em; font-size: 12px; margin-top: 8px;">Curated collections for every aesthetic.</p>
+        </div>
+
+        <div class="trend-grid" id="lookbook-grid">
+            <!-- JS injects cards here -->
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-bottom" style="border-top: none;">
+            <a href="index.html" class="logo">OFFGRID<span>.</span></a>
+            <p>© 2026 OFFGRID.</p>
+        </div>
+    </footer>
+
+    <script src="js/api.js" defer></script>
+    <script src="js/lookbook.js" defer></script>
+    <script src="js/lightbox.js" defer></script>
+</body>
+</html>

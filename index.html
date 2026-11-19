@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="OFFGRID is a fashion discovery platform exploring streetwear, culture and personal style.">
+    <title>OFFGRID — Discover Your Style</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+</head>
+
+<body>
+    <a href="#main" class="skip-link">Skip to content</a>
+
+    <div class="announcement">
+        <p>NOT HERE TO FOLLOW. HERE TO DEFINE.</p>
+    </div>
+
+    <header class="navbar">
+        <a href="index.html" class="logo-link">
+    <img src="assets/images/offgrid-logo.png" alt="OFFGRID Logo" class="site-logo">
+</a>
+        <nav class="nav-links" id="navLinks">
+            <a href="index.html" class="active">Discover</a>
+            <a href="lookbook.html">Lookbook</a>
+            <a href="trends.html">Explore Trends</a>
+        </nav>
+        <div class="nav-right">
+            <a href="lookbook.html" class="nav-cta">
+                EXPLORE COLLECTIONS <i data-lucide="arrow-up-right"></i>
+            </a>
+            <button class="menu-toggle" id="menuToggle" aria-label="Open navigation" aria-expanded="false" aria-controls="navLinks">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+    </header>
+
+    <main id="main">
+        <section class="hero">
+            <div class="hero-top">
+                <span>INDEPENDENT FASHION DISCOVERY</span>
+                <span>JOHANNESBURG / GLOBAL CULTURE</span>
+            </div>
+
+            <div class="hero-content">
+                <div class="hero-heading">
+                    <h1 id="hero-title">
+                        STYLE<br>
+                        HAS NO<br>
+                        <span>RULES<span class="lime-dot">.</span></span>
+                    </h1>
+                </div>
+
+                <div class="hero-image">
+                    <img id="hero-image" src="" alt="Editorial fashion photography">
+                    <div class="image-label">
+                        <span>01 / THE NEW PERSPECTIVE</span>
+                        <span>EST. 2026</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero-bottom">
+                <p>A space for those who see fashion differently. Discover new perspectives, explore emerging aesthetics and create your own visual language.</p>
+                <a href="lookbook.html" class="circle-link" aria-label="Explore the lookbook">
+                    <i data-lucide="arrow-down-right"></i>
+                </a>
+            </div>
+        </section>
+
+        <section class="intro-section">
+            <div class="section-label">
+                <span>01 — OUR PHILOSOPHY</span>
+                <span>MORE THAN WHAT YOU WEAR.</span>
+            </div>
+            <h2>WE DON'T FOLLOW THE <span>CROWD.</span> WE EXPLORE WHAT'S NEXT.</h2>
+            <div class="intro-bottom">
+                <p>Fashion is personal. It's culture, identity, experimentation and self-expression. OFFGRID exists to inspire the next version of your style.</p>
+                <a href="lookbook.html" class="text-link">EXPLORE OUR WORLD <i data-lucide="arrow-up-right"></i></a>
+            </div>
+        </section>
+
+        <section class="trending-section">
+            <div class="section-heading" style="margin-bottom: 24px;">
+                <div>
+                    <span class="eyebrow">02 — WHAT'S MOVING</span>
+                    <h2>TRENDING <span>NOW.</span></h2>
+                </div>
+                <a href="trends.html" class="text-link">VIEW ALL TRENDS <i data-lucide="arrow-up-right"></i></a>
+            </div>
+
+            <!-- SEARCH BAR ON HOME PAGE -->
+            <div class="search-container">
+                <input type="text" id="search-input" class="search-input" placeholder="Search styles (e.g. 'leather', 'y2k', 'boots')..." aria-label="Search styles">
+                <button id="search-btn" class="search-btn" aria-label="Search">
+                    <i data-lucide="search"></i>
+                </button>
+            </div>
+
+            <!-- Grid injected by JS -->
+            <div class="trend-grid" id="trending-grid"></div>
+        </section>
+
+        <section class="lookbook-feature">
+            <div class="lookbook-image">
+                <img src="https://images.unsplash.com/photo-1525507119028-ed4c629a60a3?w=1400&auto=format&fit=crop" alt="Fashion editorial collection" loading="lazy">
+            </div>
+            <div class="lookbook-content">
+                <span class="eyebrow">03 — THE LOOKBOOK</span>
+                <h2>FIND YOUR <span>OWN LANE.</span></h2>
+                <p>Explore curated looks, unexpected combinations and creative perspectives. Your next source of inspiration starts here.</p>
+                <a href="lookbook.html" class="button-primary">EXPLORE THE LOOKBOOK <i data-lucide="arrow-up-right"></i></a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-top">
+            <h2>STAY <span>UNCOMMON.</span></h2>
+            <a href="trends.html" class="footer-link">KEEP EXPLORING <i data-lucide="arrow-up-right"></i></a>
+        </div>
+        <div class="footer-bottom">
+            <a href="index.html" class="logo">OFFGRID<span>.</span></a>
+            <p>DISCOVER YOUR STYLE. DEFINE YOUR OWN LANE.</p>
+            <p>© 2026 OFFGRID.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/Flip.min.js"></script>
+    <script src="js/api.js" defer></script>
+    <script src="js/main.js" defer></script>
+    <script src="js/lightbox.js" defer></script>
+</body>
+</html>
